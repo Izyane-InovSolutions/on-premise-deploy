@@ -170,9 +170,9 @@ services:
     environment:
       - AUTO_ACCEPT_PARTY=false
       - AUTO_ACCEPT_QUOTES=false
-      - BACKEND_ENDPOINT=http://localhost:14000 # merchant core connector
+      - BACKEND_ENDPOINT=http://localhost:3003 # merchant core connector
       - CACHE_URL=redis://redis:6379/1
-      - DFSP_ID=Airtel
+      - DFSP_ID=Merchant
       - ENABLE_TEST_FEATURES=true
       - INBOUND_LISTEN_PORT=4000
       - INBOUND_MUTUAL_TLS_ENABLED=false
@@ -241,9 +241,9 @@ services:
     environment:
       - AUTO_ACCEPT_PARTY=false
       - AUTO_ACCEPT_QUOTES=false
-      - BACKEND_ENDPOINT=http://localhost:24000 # airtel core connector
+      - BACKEND_ENDPOINT=http://localhost:3002 # airtel core connector
       - CACHE_URL=redis://redis:6379/2
-      - DFSP_ID=Merchant
+      - DFSP_ID=Airtel
       - ENABLE_TEST_FEATURES=true
       - INBOUND_LISTEN_PORT=4000
       - INBOUND_MUTUAL_TLS_ENABLED=false
