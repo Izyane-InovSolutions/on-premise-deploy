@@ -174,7 +174,7 @@ services:
       - CACHE_URL=redis://redis:6379/1
       - DFSP_ID=Merchant
       - ENABLE_TEST_FEATURES=true
-      - INBOUND_LISTEN_PORT=4000
+      - INBOUND_LISTEN_PORT=14000
       - INBOUND_MUTUAL_TLS_ENABLED=false
       - IN_CA_CERT_PATH=/secrets/inbound-cacert.pem
       - IN_SERVER_CERT_PATH=/secrets/inbound-cert.pem
@@ -182,11 +182,11 @@ services:
       - JWS_SIGN=false
       - JWS_SIGNING_KEY_PATH=/jwsSigningKey.key
       - JWS_VERIFICATION_KEYS_DIRECTORY=/jwsVerificationKeys
-      - METRICS_SERVER_LISTEN_PORT=4004
+      - METRICS_SERVER_LISTEN_PORT=14004
       - MULTIPLE_PARTIES_RESPONSE=false
       - MGMT_API_WS_URL=management-api
-      - MGMT_API_WS_PORT=4005
-      - OUTBOUND_LISTEN_PORT=4001
+      - MGMT_API_WS_PORT=14005
+      - OUTBOUND_LISTEN_PORT=14001
       - OUTBOUND_MUTUAL_TLS_ENABLED=false
       - OUT_CA_CERT_PATH=/secrets/outbound-cacert.pem
       - OUT_CLIENT_CERT_PATH=/secrets/outbound-cert.pem
@@ -196,9 +196,9 @@ services:
       - TEST_CA_CERT_PATH=/secrets/test-cacert.pem
       - TEST_CLIENT_CERT_PATH=/secrets/test-cert.pem
       - TEST_CLIENT_KEY_PATH=/secrets/test-key.pem
-      - TEST_LISTEN_PORT=4002
+      - TEST_LISTEN_PORT=14002
       - TEST_MUTUAL_TLS_ENABLED=false
-      - WS_PORT=4003
+      - WS_PORT=14003
       # - OAUTH_TOKEN_ENDPOINT={{ CHANGE BEFORE INSTALL e.g. https://extgw.dev.product.mbox-dev.io:9443/oauth2/token }}
       # - OAUTH_CLIENT_KEY={{ CHANGE BEFORE INSTALL e.g. k9edbgS09cE9qAkiVEaz5Hmuc5Ua }}
       # - OAUTH_CLIENT_SECRET={{ CHANGE BEFORE INSTALL e.g. UvMTwwj7am2agjkAfvmElNte4ewa }}
@@ -212,8 +212,8 @@ services:
       - AUTO_ACCEPT_R2P_BUSINESS_QUOTES=false
       - AUTO_ACCEPT_R2P_DEVICE_OTP=false
     ports:
-      - "14000:4000"
-      - "14001:4001"
+      - "14000:14000"
+      - "14001:14001"
     volumes:
       - ./outbound-cacert.pem:/secrets/outbound-cacert.pem
       - ./outbound-cert.pem:/secrets/outbound-cert.pem
@@ -245,7 +245,7 @@ services:
       - CACHE_URL=redis://redis:6379/2
       - DFSP_ID=Airtel
       - ENABLE_TEST_FEATURES=true
-      - INBOUND_LISTEN_PORT=4000
+      - INBOUND_LISTEN_PORT=24000
       - INBOUND_MUTUAL_TLS_ENABLED=false
       - IN_CA_CERT_PATH=/secrets/inbound-cacert.pem
       - IN_SERVER_CERT_PATH=/secrets/inbound-cert.pem
@@ -253,11 +253,11 @@ services:
       - JWS_SIGN=false
       - JWS_SIGNING_KEY_PATH=/jwsSigningKey.key
       - JWS_VERIFICATION_KEYS_DIRECTORY=/jwsVerificationKeys
-      - METRICS_SERVER_LISTEN_PORT=4004
+      - METRICS_SERVER_LISTEN_PORT=24004
       - MULTIPLE_PARTIES_RESPONSE=false
       - MGMT_API_WS_URL=management-api
-      - MGMT_API_WS_PORT=4005
-      - OUTBOUND_LISTEN_PORT=4001
+      - MGMT_API_WS_PORT=24005
+      - OUTBOUND_LISTEN_PORT=24001
       - OUTBOUND_MUTUAL_TLS_ENABLED=false
       - OUT_CA_CERT_PATH=/secrets/outbound-cacert.pem
       - OUT_CLIENT_CERT_PATH=/secrets/outbound-cert.pem
@@ -267,9 +267,9 @@ services:
       - TEST_CA_CERT_PATH=/secrets/test-cacert.pem
       - TEST_CLIENT_CERT_PATH=/secrets/test-cert.pem
       - TEST_CLIENT_KEY_PATH=/secrets/test-key.pem
-      - TEST_LISTEN_PORT=4002
+      - TEST_LISTEN_PORT=24002
       - TEST_MUTUAL_TLS_ENABLED=false
-      - WS_PORT=4003
+      - WS_PORT=24003
       # - OAUTH_TOKEN_ENDPOINT={{ CHANGE BEFORE INSTALL e.g. https://extgw.dev.product.mbox-dev.io:9443/oauth2/token }}
       # - OAUTH_CLIENT_KEY={{ CHANGE BEFORE INSTALL e.g. k9edbgS09cE9qAkiVEaz5Hmuc5Ua }}
       # - OAUTH_CLIENT_SECRET={{ CHANGE BEFORE INSTALL e.g. UvMTwwj7am2agjkAfvmElNte4ewa }}
@@ -283,8 +283,8 @@ services:
       - AUTO_ACCEPT_R2P_BUSINESS_QUOTES=false
       - AUTO_ACCEPT_R2P_DEVICE_OTP=false
     ports:
-      - "24000:4000"
-      - "24001:4001"
+      - "24000:24000"
+      - "24001:24001"
     volumes:
       - ./outbound-cacert.pem:/secrets/outbound-cacert.pem
       - ./outbound-cert.pem:/secrets/outbound-cert.pem
