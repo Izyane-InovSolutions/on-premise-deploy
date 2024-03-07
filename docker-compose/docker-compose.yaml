@@ -170,7 +170,7 @@ services:
     environment:
       - AUTO_ACCEPT_PARTY=false
       - AUTO_ACCEPT_QUOTES=false
-      - BACKEND_ENDPOINT=http://localhost:3003 # merchant core connector
+      - BACKEND_ENDPOINT=http://host.docker.internal:3003 # merchant core connector
       - CACHE_URL=redis://redis:6379/1
       - DFSP_ID=Merchant
       - ENABLE_TEST_FEATURES=true
@@ -241,7 +241,7 @@ services:
     environment:
       - AUTO_ACCEPT_PARTY=false
       - AUTO_ACCEPT_QUOTES=false
-      - BACKEND_ENDPOINT=http://localhost:3002 # airtel core connector
+      - BACKEND_ENDPOINT=http://host.docker.internal:3002 # airtel core connector
       - CACHE_URL=redis://redis:6379/2
       - DFSP_ID=Airtel
       - ENABLE_TEST_FEATURES=true
@@ -256,8 +256,8 @@ services:
       - METRICS_SERVER_LISTEN_PORT=4004
       - MULTIPLE_PARTIES_RESPONSE=false
       - MGMT_API_WS_URL=management-api
-      - MGMT_API_WS_PORT=24005
-      - OUTBOUND_LISTEN_PORT=24001
+      - MGMT_API_WS_PORT=4005
+      - OUTBOUND_LISTEN_PORT=4001
       - OUTBOUND_MUTUAL_TLS_ENABLED=false
       - OUT_CA_CERT_PATH=/secrets/outbound-cacert.pem
       - OUT_CLIENT_CERT_PATH=/secrets/outbound-cert.pem
