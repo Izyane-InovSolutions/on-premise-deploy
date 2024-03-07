@@ -191,8 +191,8 @@ services:
       - OUT_CA_CERT_PATH=/secrets/outbound-cacert.pem
       - OUT_CLIENT_CERT_PATH=/secrets/outbound-cert.pem
       - OUT_CLIENT_KEY_PATH=/secrets/outbound-key.pem
-      - PEER_ENDPOINT=sdk-scheme-adapter2:24000
-      - ALS_ENDPOINT=sdk-scheme-adapter2:24000
+      - PEER_ENDPOINT=sdk-scheme-adapter2:4000
+      - ALS_ENDPOINT=sdk-scheme-adapter2:4000
       - TEST_CA_CERT_PATH=/secrets/test-cacert.pem
       - TEST_CLIENT_CERT_PATH=/secrets/test-cert.pem
       - TEST_CLIENT_KEY_PATH=/secrets/test-key.pem
@@ -262,8 +262,8 @@ services:
       - OUT_CA_CERT_PATH=/secrets/outbound-cacert.pem
       - OUT_CLIENT_CERT_PATH=/secrets/outbound-cert.pem
       - OUT_CLIENT_KEY_PATH=/secrets/outbound-key.pem
-      - PEER_ENDPOINT=sdk-scheme-adapter1:14000
-      - ALS_ENDPOINT=sdk-scheme-adapter1:14000
+      - PEER_ENDPOINT=sdk-scheme-adapter1:4000
+      - ALS_ENDPOINT=sdk-scheme-adapter1:4000
       - TEST_CA_CERT_PATH=/secrets/test-cacert.pem
       - TEST_CLIENT_CERT_PATH=/secrets/test-cert.pem
       - TEST_CLIENT_KEY_PATH=/secrets/test-key.pem
