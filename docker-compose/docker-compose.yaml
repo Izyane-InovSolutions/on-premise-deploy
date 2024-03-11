@@ -15,7 +15,7 @@ services:
   frontend:
     image: pm4ml/mojaloop-payment-manager-ui:1.14.0
     environment:
-      - API_BASE_URL=host.docker.internal:4010
+      - API_BASE_URL=172.17.0.1:4010
     ports:
        - "8081:8080"
     depends_on:
@@ -26,7 +26,7 @@ services:
     environment:
       - KEYCLOAK_USER=admin
       - KEYCLOAK_PASSWORD=admin
-      - KEYCLOAK_FRONTEND_URL=host.docker.internal:8080/auth
+      - KEYCLOAK_FRONTEND_URL=172.17.0.1:8080/auth
       - KEYCLOAK_IMPORT=/tmp/pm4ml-realm.json
       - DB_VENDOR=h2
     volumes:
@@ -43,9 +43,9 @@ services:
       - AUTH_CLIENT_ID=pm4ml-customer-ui
       - AUTH_CLIENT_SECRET=a857e3d7-ebd4-4451-aabd-bcb480dde1a3
       - AUTH_DISCOVERY_ENDPOINT=http://keycloak:8080/auth/realms/pm4ml/.well-known/openid-configuration
-      - AUTH_LOGGED_IN_LANDING_URL=host.docker.internal:8081/
+      - AUTH_LOGGED_IN_LANDING_URL=172.17.0.1:8081/
       - AUTH_REDIRECT_NAME=pm4ml-customer-ui
-      - AUTH_REDIRECT_URI=host.docker.internal:4010/auth
+      - AUTH_REDIRECT_URI=172.17.0.1:4010/auth
       - AUTH_RESOURCE_NAME=pm4ml-customer-ui
       - AUTH_SCOPES=roles
       - DFSP_ID={{ CHANGE BEFORE INSTALL }}
@@ -77,7 +77,7 @@ services:
       - MCM_API_TOKEN={{ REQUIRED BEFORE INSTALL }}
       - MCM_CLIENT_REFRESH_INTERVAL=180000
       - MCM_CLIENT_SECRETS_LOCATION=/secrets
-      - MCM_SERVER_ENDPOINT=host.docker.internal:9001
+      - MCM_SERVER_ENDPOINT=172.17.0.1:9001
       - P12_PASS_PHRASE=SOME_S3C4R3_P@SS
       - PK_SECRETS_LOCATION=/secrets
       - PRIVATE_KEY_ALGORITHM=rsa
@@ -147,7 +147,7 @@ services:
   #   ports:
   #     - "6061:6060"
   #   environment:
-  #     - API_BASE_URL=host.docker.internal:5051
+  #     - API_BASE_URL=172.17.0.1:5051
   #     - AUTH_ENABLED=FALSE
   #   command:
   #     - sh
@@ -170,7 +170,7 @@ services:
     environment:
       - AUTO_ACCEPT_PARTY=false
       - AUTO_ACCEPT_QUOTES=false
-      - BACKEND_ENDPOINT=host.docker.internal:3003 # merchant core connector
+      - BACKEND_ENDPOINT=172.17.0.1:3003 # merchant core connector
       - CACHE_URL=redis://redis:6379/1
       - DFSP_ID=Merchant
       - ENABLE_TEST_FEATURES=true
@@ -241,7 +241,7 @@ services:
     environment:
       - AUTO_ACCEPT_PARTY=false
       - AUTO_ACCEPT_QUOTES=false
-      - BACKEND_ENDPOINT=host.docker.internal:3002 # airtel core connector
+      - BACKEND_ENDPOINT=172.17.0.1:3002 # airtel core connector
       - CACHE_URL=redis://redis:6379/2
       - DFSP_ID=Airtel
       - ENABLE_TEST_FEATURES=true
@@ -320,7 +320,7 @@ services:
     ports:
       - "6060:6060"
     environment:
-      - API_BASE_URL=host.docker.internal:5050
+      - API_BASE_URL=172.17.0.1:5050
       - AUTH_ENABLED=FALSE
     command:
       - sh
