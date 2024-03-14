@@ -170,7 +170,7 @@ services:
     environment:
       - AUTO_ACCEPT_PARTY=true
       - AUTO_ACCEPT_QUOTES=true
-      - BACKEND_ENDPOINT=172.17.0.1:3003
+      - BACKEND_ENDPOINT=host.docker.internal:3003
       - CACHE_URL=redis://redis:6379/1
       - DFSP_ID=dfsp1
       - ENABLE_TEST_FEATURES=true
@@ -241,7 +241,7 @@ services:
     environment:
       - AUTO_ACCEPT_PARTY=true
       - AUTO_ACCEPT_QUOTES=true
-      - BACKEND_ENDPOINT=172.17.0.1:3002
+      - BACKEND_ENDPOINT=host.docker.internal:3002
       - CACHE_URL=redis://redis:6379/2
       - DFSP_ID=dfsp1
       - ENABLE_TEST_FEATURES=true
