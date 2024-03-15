@@ -120,39 +120,6 @@ services:
     volumes:
       - ./prometheus.yml:/etc/prometheus/prometheus.yml
 
-  # simulator-core-connector:
-  #   image: pm4ml/wallet-core-connector:1.0.11
-  #   environment:
-  #     - BACKEND_ENDPOINT=http://sim-backend:4040
-  #     - MLCONN_OUTBOUND_ENDPOINT=http://sdk-scheme-adapter:4001
-  #   ports:
-  #      - "3003:3003"
-  #   depends_on:
-  #     - sdk-scheme-adapter
-  #     - sim-backend
-
-  # sim-backend:
-  #   image: mojaloop/ml-testing-toolkit:v15.7.0
-  #   volumes:
-  #     - "../testing-toolkit/docker-compose/as-a-backend/spec_files:/opt/app/spec_files"
-  #   ports:
-  #     - "5051:5050"
-  #   command:
-  #     - sh
-  #     - -c
-  #     - "npm start"
-  # NOTE: The following UI for sim backend can be enabled for debugging purpose
-  # sim-backend-ui:
-  #   image: mojaloop/ml-testing-toolkit-ui:v15.1.3
-  #   ports:
-  #     - "6061:6060"
-  #   environment:
-  #     - API_BASE_URL=http://localhost:5051
-  #     - AUTH_ENABLED=FALSE
-  #   command:
-  #     - sh
-  #     - /usr/share/nginx/start.sh
-
   redis:
     image: redis:6.2.4-alpine
     environment:
@@ -168,11 +135,11 @@ services:
     - -c
     - "yarn start:api-svc"
     environment:
-      - AUTO_ACCEPT_PARTY=true
-      - AUTO_ACCEPT_QUOTES=true
-      - BACKEND_ENDPOINT=host.docker.internal:3003
+      - AUTO_ACCEPT_PARTY=false
+      - AUTO_ACCEPT_QUOTES=false
+      - BACKEND_ENDPOINT=172.17.0.1:3003
       - CACHE_URL=redis://redis:6379/1
-      - DFSP_ID=dfsp1
+      - DFSP_ID=merchantdfsp
       - ENABLE_TEST_FEATURES=true
       - INBOUND_LISTEN_PORT=4000
       - INBOUND_MUTUAL_TLS_ENABLED=false
@@ -231,6 +198,8 @@ services:
         condition: service_started
       # management-api:
       #   condition: service_healthy
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
   sdk-scheme-adapter2:
     image: mojaloop/sdk-scheme-adapter:v23.4.0
@@ -239,11 +208,11 @@ services:
     - -c
     - "yarn start:api-svc"
     environment:
-      - AUTO_ACCEPT_PARTY=true
-      - AUTO_ACCEPT_QUOTES=true
-      - BACKEND_ENDPOINT=host.docker.internal:3002
+      - AUTO_ACCEPT_PARTY=false
+      - AUTO_ACCEPT_QUOTES=false
+      - BACKEND_ENDPOINT=172.17.0.1:3002
       - CACHE_URL=redis://redis:6379/2
-      - DFSP_ID=dfsp1
+      - DFSP_ID=airteldfsp
       - ENABLE_TEST_FEATURES=true
       - INBOUND_LISTEN_PORT=4000
       - INBOUND_MUTUAL_TLS_ENABLED=false
@@ -302,6 +271,8 @@ services:
         condition: service_started
       # management-api:
       #   condition: service_healthy
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
   mojaloop-testing-toolkit:
     image: mojaloop/ml-testing-toolkit:v15.7.0
